@@ -1,4 +1,3 @@
-// src/pages/Pomodoro.js
 import React, { useState, useEffect } from 'react';
 import { Box, Button, TextField, Typography, Grid, Container, Stack, LinearProgress } from '@mui/material';
 import { useTheme } from '@mui/material/styles';

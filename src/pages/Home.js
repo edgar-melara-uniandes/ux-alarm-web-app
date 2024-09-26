@@ -1,4 +1,3 @@
-// src/pages/Home.js
 import React from 'react';
 import { Container, Typography, List } from '@mui/material';
 import ReminderItem from '../components/ReminderItem';
