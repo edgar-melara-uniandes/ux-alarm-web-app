@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Box, CssBaseline } from '@mui/material';
+import NavBar from './components/NavBar';
+import Home from './pages/Home';
+import Recordatorios from './pages/Recordatorios';
+import Pomodoro from './pages/Pomodoro';
+import Resumen from './pages/Resumen';
+
+const drawerWidth = 240;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Router>
+      <Box sx={{ display: 'flex' }}>
+        <CssBaseline />
+        <NavBar />
+        <Box
+          component="main"
+          sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3, width: `calc(100% - ${drawerWidth}px)` }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/recordatorios" element={<Recordatorios />} />
+            <Route path="/pomodoro" element={<Pomodoro />} />
+            <Route path="/resumen" element={<Resumen />} />
+          </Routes>
+        </Box>
+      </Box>
+    </Router>
   );
 }
 
