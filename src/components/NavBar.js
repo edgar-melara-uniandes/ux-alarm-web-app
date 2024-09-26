@@ -1,4 +1,3 @@
-// src/components/NavBar.js
 import React from 'react';
 import { Drawer, List, ListItem, ListItemText, CssBaseline, Box, Typography, Divider } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -34,6 +33,7 @@ function NavBar() {
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
+            borderRadius: '16px', // Agrega bordes redondeados
             '&::before': {
               content: '""',
               position: 'absolute',
@@ -43,6 +43,7 @@ function NavBar() {
               height: '100%',
               backgroundColor: theme.palette.surface.main,
               opacity: 0.8,
+              borderRadius: '16px', // Asegura que el overlay también tenga bordes redondeados
             },
           },
         }}
@@ -51,24 +52,18 @@ function NavBar() {
       >
         <Box sx={{ p: 2, textAlign: 'center', position: 'relative', zIndex: 1 }}>
           <Typography variant="h6" gutterBottom>
-            Bienvenido, {user.name}
+          Bienvenido, {user.name}
           </Typography>
         </Box>
-        <List sx={{ position: 'relative', zIndex: 1 }}>
+        <List>
           {menuItems.map((item) => (
-            <ListItem button key={item.text} component={Link} to={item.path}>
+            <ListItem button component={Link} to={item.path} key={item.text}>
               <ListItemText primary={item.text} />
             </ListItem>
           ))}
         </List>
         <Divider />
       </Drawer>
-      <Box
-        component="main"
-        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3, width: `calc(100% - ${drawerWidth}px)` }}
-      >
-        {/* Aquí puedes agregar el contenido principal de tu aplicación */}
-      </Box>
     </Box>
   );
 }
