@@ -1,4 +1,3 @@
-// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Box, CssBaseline } from '@mui/material';
@@ -7,6 +6,7 @@ import Home from './pages/Home';
 import Recordatorios from './pages/Recordatorios';
 import Pomodoro from './pages/Pomodoro';
 import Resumen from './pages/Resumen';
+import CrearRecordatorio from './pages/CrearRecordatorio';
 
 const drawerWidth = 240;
 
@@ -25,6 +25,7 @@ function App() {
             <Route path="/recordatorios" element={<Recordatorios />} />
             <Route path="/pomodoro" element={<Pomodoro />} />
             <Route path="/resumen" element={<Resumen />} />
+            <Route path="/crear-recordatorio" element={<CrearRecordatorio />} />
           </Routes>
         </Box>
       </Box>

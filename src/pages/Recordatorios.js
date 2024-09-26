@@ -1,5 +1,7 @@
 import React from 'react';
-import { Container, Typography, List, Box } from '@mui/material';
+import { Container, Typography, List, Box, Fab } from '@mui/material';
+import { Add as AddIcon } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 import ReminderItem from '../components/ReminderItem';
 
 const todayReminders = [
@@ -16,6 +18,12 @@ const tomorrowReminders = [
 ];
 
 function Recordatorios() {
+  const navigate = useNavigate();
+
+  const handleAddReminder = () => {
+    navigate('/crear-recordatorio');
+  };
+
   return (
     <Container>
       <Typography variant="h3" component="h2" gutterBottom align="center">
@@ -43,6 +51,14 @@ function Recordatorios() {
           <ReminderItem key={reminder.id} title={reminder.title} time={reminder.time} />
         ))}
       </List>
+      <Fab
+        color="primary"
+        aria-label="add"
+        sx={{ position: 'fixed', bottom: 16, right: 16, zIndex: 1000 }}
+        onClick={handleAddReminder}
+      >
+        <AddIcon />
+      </Fab>
     </Container>
   );
 }
